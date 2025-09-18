@@ -33,7 +33,7 @@
     "commit": "git-cz",
     "#release": "npm run dist && semantic-release",
     "build": "tsc",
-    "postinstall": "npm run dist",
+    "install": "npm run dist",
     "dist": "npm run clean && npm run build",
     "clean": "rimraf build coverage dist styleguide",
     "doc:dev": "styleguidist server",
@@ -124,7 +124,7 @@
     "stylelint-prettier": "^2.0.0",
     "stylelint-processor-styled-components": "^1.10.0",
     "ts-loader": "^9.4.2",
-    "typescript": "^4.9.4",
+    "typescript": "^5.9.2",
     "webpack": "^5.75.0"
   },
   "peerDependencies": {
