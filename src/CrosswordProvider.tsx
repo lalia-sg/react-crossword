@@ -167,6 +167,8 @@ export const crosswordProviderPropTypes = {
   onClueSelected: PropTypes.func,
 
   children: PropTypes.node,
+
+  onCellPress: PropTypes.func,
 };
 
 export type CrosswordProviderProps = EnhancedProps<
@@ -269,6 +271,8 @@ export type CrosswordProviderProps = EnhancedProps<
      * callback function called when a clue is selected
      */
     onClueSelected?: (direction: Direction, number: string) => void;
+
+    onCellPress?: (row: number, col: number, char: string) => void;
   }
 >;
 
@@ -340,6 +344,7 @@ const CrosswordProvider = React.forwardRef<
       onCrosswordCorrect,
       onCellChange,
       onClueSelected,
+      onCellPress,
       useStorage,
       storageKey,
       children,
@@ -870,6 +875,8 @@ const CrosswordProvider = React.forwardRef<
 
           let direction = currentDirection;
 
+          onCellPress?.(row, col, cellData.guess);
+
           // We switch to the "other" direction if (a) the current direction
           // isn't available in the clicked cell, or (b) we're already focused
           // and the clicked cell is the focused cell, *and* the other direction
@@ -890,7 +897,7 @@ const CrosswordProvider = React.forwardRef<
 
         focus();
       },
-      [currentDirection, focus, focused, focusedCol, focusedRow]
+      [currentDirection, focus, focused, focusedCol, focusedRow, onCellPress]
     );
 
     const handleInputClick = useCallback<
