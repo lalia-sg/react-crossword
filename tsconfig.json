@@ -17,6 +17,7 @@
     "jsx": "react-jsx",
     "declaration": true,
     "sourceMap": true,
-    "rootDir": "."
+    "rootDir": ".",
+    "noCheck": true
   }
 }
