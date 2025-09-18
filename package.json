@@ -1,7 +1,7 @@
 {
   "name": "@jaredreisinger/react-crossword",
   "homepage": "https://react-crossword.jaredreisinger.com",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "description": "A flexible, responsive, and easy-to-use crossword component for React apps",
   "author": {
     "name": "JaredReisinger",
@@ -33,6 +33,7 @@
     "commit": "git-cz",
     "#release": "npm run dist && semantic-release",
     "build": "tsc",
+    "postinstall": "npm run dist",
     "dist": "npm run clean && npm run build",
     "clean": "rimraf build coverage dist styleguide",
     "doc:dev": "styleguidist server",
