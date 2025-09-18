@@ -272,7 +272,7 @@ export type CrosswordProviderProps = EnhancedProps<
      */
     onClueSelected?: (direction: Direction, number: string) => void;
 
-    onCellPress?: (row: number, col: number, char: string) => void;
+    onCellPress?: (row: number, col: number, char?: string) => void;
   }
 >;
 
